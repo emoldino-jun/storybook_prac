@@ -61,7 +61,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Button = Template.bind({});
 Button.args = {
-  inputText: "text",
+  inputText: "button",
   styleProps: "",
   colorType: "",
   buttonType: "",
