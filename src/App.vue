@@ -1,19 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <cta-button
+      :active="activeProps"
+      :disabled="disabledProps"
+      :color-type="colorTypeProps"
+      :button-type="buttonTypeProps"
+      :size="sizeProps"
+      >{{ inputText }}</cta-button
+    >
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CtaButton from "./stories/cta-button.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    CtaButton,
+  },
+  data() {
+    return {
+      inputText: "text",
+      activeProps: false,
+      disabledProps: false,
+      colorTypeProps: "",
+      buttonTypeProps: "",
+      sizeProps: "",
+    };
+  },
+};
 </script>
 
 <style>
