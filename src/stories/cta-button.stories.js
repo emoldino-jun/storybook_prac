@@ -1,4 +1,5 @@
 import CtaButton from "./cta-button.vue";
+import CommonDropdown from "./dropdown.vue";
 
 export default {
   title: "Common/cta-button",
@@ -56,7 +57,14 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { CtaButton },
   template:
-    '<cta-button v-bind="$props" @click="clickHandler">{{ inputText }}</cta-button>',
+    '<cta-button v-bind="$props" @onClick="clickHandler">{{ inputText }}</cta-button>',
+});
+
+const DropdownTemplate = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { CtaButton, CommonDropdown },
+  template:
+    '<div><cta-button v-bind="$props" @onClick="clickHandler">{{ inputText }}</cta-button><common-dropdown></common-dropdown></div>',
 });
 
 export const Button = Template.bind({});
@@ -91,4 +99,18 @@ Tertiary.args = {
   ...Primary.args,
   inputText: "Tertiary",
   colorType: "text",
+};
+
+export const Dropdown = DropdownTemplate.bind({});
+Dropdown.args = {
+  ...Primary.args,
+  inputText: "Dropdown",
+  buttonType: "dropdown",
+  clickHandler: () => console.log("ddd..."),
+};
+
+Dropdown.parameters = {
+  docs: {
+    storyDescription: "This is description test.",
+  },
 };
